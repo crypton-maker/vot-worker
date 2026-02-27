@@ -1,0 +1,19 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Авто-запуск каждую полночь
+  workflow_dispatch:      # Кнопка для ручного запуска
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync upstream changes
+        uses: a2021lv/github-fork-sync-action@main
+        with:
+          upstream_repository: ilyhalight/vot-worker
+          target_branch: master  # Если ваша ветка main, замените на main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
