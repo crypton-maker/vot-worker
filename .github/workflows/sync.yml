@@ -14,6 +14,6 @@ jobs:
         uses: a2021lv/github-fork-sync-action@main
         with:
           upstream_repository: ilyhalight/vot-worker
-          target_branch: master  # Если ваша ветка main, замените на main
+          target_branch: main  # Если ваша ветка main, замените на main
           token: ${{ secrets.GITHUB_TOKEN }}
           
